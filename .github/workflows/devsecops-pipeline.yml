@@ -27,3 +27,9 @@ jobs:
           npm install -g snyk
           snyk auth $SNYK_TOKEN
           snyk test --docker dvwa-app
+    - name: Run StackHawk Scan
+      env:
+        HAWK_API_KEY: ${{ secrets.HAWK_API_KEY }}
+      run: |
+        curl -sL https://github.com/stackhawk/hawkscan-cli/releases/latest/download/hawkscan-linux-amd64.tar.gz | tar xz
+        ./hawkscan
