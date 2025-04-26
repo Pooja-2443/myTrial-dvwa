@@ -31,7 +31,7 @@ jobs:
       - name: Run StackHawk Scan
         env:
           HAWK_API_KEY: ${{ secrets.HAWK_API_KEY }}
-	continue-on-error: true
+        continue-on-error: true
         run: |
           curl -sL https://github.com/stackhawk/hawkscan-cli/releases/latest/download/hawkscan-linux-amd64.tar.gz | tar xz
           ./hawkscan
